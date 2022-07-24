@@ -1,4 +1,10 @@
+import SwiftUI
 
-struct Person {
-    
+@main
+struct Landmarksapp: App {
+    var body: some Scene {
+        WindowGroup {
+            Text("Hello")
+        }
+    }
 }
