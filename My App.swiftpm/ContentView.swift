@@ -2,9 +2,17 @@ import SwiftUI
 
 struct ContentView :View {
     var body: some View{
-        Text("Hello world")
-            .font(.title)
-            .foregroundColor(.blue)
+        VStack(alignment: .leading){
+            Text("Turtle Rock")
+                .font(.title)
+                .foregroundColor(.mint)
+            
+            HStack {
+                Text("Joshua Tree National Park").font(.subheadline)
+                Spacer()
+                Text("California").font(.subheadline)
+            }
+        }.padding()
     }
 }
 
