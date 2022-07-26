@@ -1,5 +1,7 @@
 import SwiftUI
 
+var landmarks: [Landmark] = load("landmarkData.json")
+
 //This function is using genetics
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
@@ -17,8 +19,8 @@ func load<T: Decodable>(_ filename: String) -> T {
         let decoder = JSONDecoder()
         return try decoder.decode(T.self, from: data)
     }catch {
-        fatalError("Could not parse data")
+        print("Could not parse data \(filename) as \(T.self):\n\(error.localizedDescription)")
+        fatalError("Could not parse data \(filename) as \(T.self):\n\(error.localizedDescription)")
     }
 }
 
-var landmarks: [Landmark] = load("landmarks.json")

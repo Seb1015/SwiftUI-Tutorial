@@ -1,7 +1,8 @@
 import SwiftUI
 import MapKit
+import CoreLocation
 
-struct Landmark: Decodable {
+struct Landmark: Hashable, Decodable {
     var id: Int
     var name: String
     var park: String
@@ -16,11 +17,11 @@ struct Landmark: Decodable {
     
     private var coordinates : Coordinates 
     
-    var locationCoordinates: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: coordinates.lat, longitude: coordinates.lon)
+    var locationCoordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
     }
     struct Coordinates: Hashable, Codable {
-        var lat: Double
-        var lon: Double
+        var latitude: Double
+        var longitude: Double
     }
 }
