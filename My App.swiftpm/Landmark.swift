@@ -2,7 +2,7 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
-struct Landmark: Hashable, Decodable {
+struct Landmark: Hashable, Decodable, Identifiable {
     var id: Int
     var name: String
     var park: String

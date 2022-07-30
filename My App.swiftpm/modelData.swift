@@ -1,6 +1,5 @@
 import SwiftUI
 
-var landmarks: [Landmark] = load("landmarkData.json")
 
 //This function is using genetics
 func load<T: Decodable>(_ filename: String) -> T {
@@ -24,3 +23,5 @@ func load<T: Decodable>(_ filename: String) -> T {
     }
 }
 
+
+var landmarks: [Landmark] = load("landmarkData.json")
