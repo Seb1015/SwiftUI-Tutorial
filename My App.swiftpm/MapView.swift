@@ -2,16 +2,23 @@ import SwiftUI
 import MapKit
 
 struct MyView: View {
-    @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 34.011_286, longitude: -116.116_868), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
-    ) 
+    var coordinates: CLLocationCoordinate2D
+    @State var region = MKCoordinateRegion()
+    
     var body: some View {
         Map(coordinateRegion: $region)
+            .onAppear {
+                setCoordinates(coordinates)
+            }
+    }
+    
+    private func setCoordinates(_ newCoordinates: CLLocationCoordinate2D) {
+        region = MKCoordinateRegion(center: newCoordinates, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
     }
 }
 
 struct MyView_Previews: PreviewProvider {
     static var previews: some View {
-        MyView()
+        MyView(coordinates: CLLocationCoordinate2D(latitude: 34.011_286, longitude: -116.166_868))
     }
 }
